@@ -1,0 +1,3 @@
+# Remove the downloaded centos image
+
+docker rmi centos

@@ -1,0 +1,7 @@
+# Now add a Volume mapping to map the local directory /opt/jenkins_data to /var/jenkins_home inside the docker container
+
+# Before
+# docker run -p 80:8080 jenkins
+
+# After
+docker run -p 80:8080 -v /opt/jenkins_data:/var/jenkins_home jenkins

@@ -1,0 +1,32 @@
+# The mysql image requires an environment variable to be passed in such as MYSQL_ROOT_PASSWORD or MYSQL_ALLOW_EMPTY_PASSWORD or MYSQL_RANDOM_ROOT_PASSWORD
+# Let us go with MYSQL_ROOT_PASSWORD and  use password Password123
+# Add a new property to the mysql service named environment and provide an environment variable MYSQL_ROOT_PASSWORD with value Password123
+# Example here
+# web:
+#    environment:
+#      - DEBUG=1
+# Refer to Documentation here -   https://docs.docker.com/compose/environment-variables/
+# ------------------------------
+#           BEFORE
+# ------------------------------
+#version: '3'
+#services:
+#  web:
+#      image: "wordpress"
+#  mysql:
+#    image: "mysql"
+
+
+
+# ------------------------------
+#           AFTER
+# ------------------------------
+version: '3'
+services:
+  mysql:
+      image: "mysql"
+      environment:
+        - MYSQL_ROOT_PASSWORD=password
+  web:
+    image: "wordpress"
+

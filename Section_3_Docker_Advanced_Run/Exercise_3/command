@@ -1,0 +1,7 @@
+# Given below is a command to run Jenkins web server. Add a port mapping to map port 8080 to the port 80 on the Docker host.
+
+# Before
+# docker run jenkins
+
+# After
+docker run -p 80:8080 jenkins

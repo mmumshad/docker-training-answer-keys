@@ -1,0 +1,39 @@
+ Wordress is a web server. To access the web server using the Dockerhost IP we must add a port mapping
+ Add a port mapping to the web server to map port 80 on the docker container to 8080 on the Docker host.
+ Example here
+  web:
+    ports:
+      - "8000:8000"
+ Refer to Documentation here -   https://docs.docker.com/compose/networking/
+# ------------------------------
+#           BEFORE
+# ------------------------------
+version: '3'
+services:
+  mysql:
+      image: "mysql"
+      environment:
+        - MYSQL_ROOT_PASSWORD=password
+  web:
+    image: "wordpress"
+    environment:
+            - WORDPRESS_DB_PASSWORD=password
+
+
+
+# ------------------------------
+#           AFTER
+# ------------------------------
+version: '3'
+services:
+  mysql:
+      image: "mysql"
+      environment:
+        - MYSQL_ROOT_PASSWORD=password
+  web:
+    image: "wordpress"
+    ports:
+      - "8080:80"
+    environment:
+            - WORDPRESS_DB_PASSWORD=password
+

@@ -1,0 +1,35 @@
+ The wordpress web image also expects an environment variable with the password to connect to the mysql database.
+ Provide an environment variable for the web server and pass in the same password used previously for the env variable WORDPRESS_DB_PASSWORD
+ Example here
+ web:
+    environment:
+      - DEBUG=1
+ Refer to Documentation here -   https://docs.docker.com/compose/environment-variables/
+# ------------------------------
+#           BEFORE
+# ------------------------------
+version: '3'
+services:
+  mysql:
+      image: "mysql"
+      environment:
+        - MYSQL_ROOT_PASSWORD=password
+  web:
+    image: "wordpress"
+
+
+
+# ------------------------------
+#           AFTER
+# ------------------------------
+version: '3'
+services:
+  mysql:
+      image: "mysql"
+      environment:
+        - MYSQL_ROOT_PASSWORD=password
+  web:
+    image: "wordpress"
+    environment:
+            - WORDPRESS_DB_PASSWORD=password
+

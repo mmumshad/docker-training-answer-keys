@@ -1,0 +1,3 @@
+# Execute a command while running the Ubuntu Zesty image to print contents of /etc/hosts file
+
+docker run ubuntu:zesty cat /etc/hosts

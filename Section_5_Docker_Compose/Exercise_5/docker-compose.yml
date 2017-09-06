@@ -1,0 +1,46 @@
+ The data in mysql is stored at location /var/lib/mysql. In case the container stops/crashes or gets removed, we lose all data.
+ Add a volume mapping to map the local volume on Docker host : /data/mysql to the volume /var/lib/mysql inside the docker container.
+ This is the end of docker compose exercises
+# Example here
+  mysql:
+    volumes:
+      - "local_directory:remote_directory"
+# Refer to Documentation here -   https://docs.docker.com/compose/compose-file/#volumes
+# ------------------------------
+#           BEFORE
+# ------------------------------
+version: '3'
+services:
+  mysql:
+      image: "mysql"
+      environment:
+        - MYSQL_ROOT_PASSWORD=password
+  web:
+    image: "wordpress"
+    ports:
+      - "8080:80"
+    environment:
+            - WORDPRESS_DB_PASSWORD=password
+
+
+
+# ------------------------------
+#           AFTER
+# ------------------------------
+version: '3'
+services:
+  mysql:
+      image: "mysql"
+      environment:
+        - MYSQL_ROOT_PASSWORD=password
+      volumes:
+        - type: volume
+          source: /data/mysql
+          target: /var/lib/mysql
+  web:
+    image: "wordpress"
+    ports:
+      - "8080:80"
+    environment:
+            - WORDPRESS_DB_PASSWORD=password
+

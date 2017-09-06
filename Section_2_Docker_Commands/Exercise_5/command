@@ -1,0 +1,4 @@
+# Cleanup by removing the stopped container
+
+docker rm stoic_hugle
+docker rm trusting_borg

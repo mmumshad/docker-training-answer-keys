@@ -1,0 +1,22 @@
+# We are now attempting to deploy a wordpress application using Docker. We have created a docker compose file named docker-compose.yml
+# The wordpress application is two-tier - Web and Database. For web we use the wordpress image available here - https://hub.docker.com/_/wordpress/
+# The wordpress application requires a mysql database to be present.
+# Add a new service to the docker-compsoe.yml file named "mysql" and use the image "mysql"
+# ------------------------------
+#           BEFORE
+# ------------------------------
+#version: '3'
+#services:
+#  web:
+#      image: "wordpress"
+
+
+# ------------------------------
+#           AFTER
+# ------------------------------
+version: '3'
+services:
+  web:
+      image: "wordpress"
+  mysql:
+    image: "mysql"

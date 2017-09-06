@@ -1,0 +1,3 @@
+# Now that the container is running execute a command to list all running containers.
+
+docker ps
